@@ -18,7 +18,7 @@ function main(){
   //Translate the patch so that it's in the center of the room
   shape = shape.translate(-patch_width / 2, -patch_height / 2 + 80)
   //Rotates the shape a little, makes it look nice
-  shape = shape.rotx(-0.3);
+  //shape = shape.rotx(-0.3);
 
   //Apply random colors to the plane
   //seen.Colors.randomSurfaces2(shape);
@@ -38,7 +38,12 @@ function main(){
   context.animate().onBefore(animateFunction).start();
 }
 
+var hue = 0;
 function animateFunction(t) {
+  hue = hue + 0.001
+  if(hue >= 2)
+    hue = 0
+  console.log(hue)
   ref = shape.surfaces;
   results = [];
   for (i = 0, len = ref.length; i < len; i++) {
@@ -48,6 +53,7 @@ function animateFunction(t) {
       p = ref1[j];
       p.z = 4 * noiser.noise(p.x / 8, p.y / 8, t * 1e-4);
     }
+    surf.fillMaterial.specularExponent = 0
     results.push(surf.dirty = true);
   }
   return results;

@@ -2,8 +2,8 @@ var shape
 var noiser
 function main(){
   //Some constants
-  var width = 900;
-  var height = 500;
+  var width = 1800;
+  var height = 600;
   var equilateralAltitude = Math.sqrt(3.0) / 2.0;
   var triangleScale = 70;
   var patch_width = width * 1.5;
@@ -21,7 +21,7 @@ function main(){
   shape = shape.rotx(-0.3);
 
   //Apply random colors to the plane
-  seen.Colors.randomSurfaces2(shape);
+  //seen.Colors.randomSurfaces2(shape);
 
   //Create a new shape
   scene = new seen.Scene({

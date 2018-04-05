@@ -2,20 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>noisy wave</title>
     <script src="lib/seen.min.js"></script>
     <script src="noisy-wave.js"></script>
   </head>
-
-  <body>
-    <body onload="main()">
-  	<div style="text-align: center">
-      <canvas width="1100" height="500" id="seen-canvas">
+  <body onload="main()">
+    <div id ="canvasContainter">
+      <canvas width="1400" height="600" id="seen-canvas">
         Please use a browser that supports the "canvas" tag.
       </canvas>
+      <div id="name">
+        Matthew Puentes
+      </div>
+      <div id="overlay">
+        welcome to my website!
+      </div>
     </div>
-    <p>
-    first commit bay-bee
-    </p>
+    <!-- <div id="container">
+  <canvas></canvas>
+  <div id="overlay">This div is over the canvas</div>
+</div> -->
+
   </body>
 </html>

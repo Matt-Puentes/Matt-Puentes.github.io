@@ -1,53 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Matthew Puentes</title>
-    <script src="lib/seen.min.js"></script>
-    <script src="noisy-wave.js"></script>
-  </head>
-  <body onload="main()">
-    <div id ="canvasContainter">
-      <canvas width="1400" height="600" id="seen-canvas">
-        Please use a browser that supports the "canvas" tag.
-      </canvas>
-      <div id="name">
-        Matthew Puentes
-      </div>
-      <div class="overlay" id="body">
-        <div class="inner-overlay" id ="welcome">
-            Hey there, My name is Matt! <br> Welcome to my website!
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Matthew Puentes</title>
+        <script src="lib/seen.min.js"></script>
+        <script src="noisy-wave.js"></script>
+    </head>
+    <body onload="main()">
+        <div id ="canvasContainter">
+          <canvas width="1400" height="600" id="seen-canvas">
+            Please use a browser that supports the "canvas" tag.
+          </canvas>
+        <div id="main">
+            <p>Hello! My name is</p>
+            <p id="Name">Matt Puentes</p>
+            <p>I'm a Computer Science Student at <a href="https://www.wpi.edu">WPI</a></p>
+            <p>I'm a proud member of the <a href="https://www.sfs.opm.gov/">CyberCorps SFS program</a></p>
+            <p>I am looking for a job with the US government or a National Research Lab!</p>
+            <p>You can look at my resume <a href="files/Resume 2018.pdf">here</p>
+
+            <div id="icons">
+                <a href="https://github.com/Matt-Puentes" target="_blank" title="Check out my projects on Github!" class="hoverLock">
+                    <i class="fa fa-github"></i>
+                </a>
+                <a href="http://steamcommunity.com/profiles/76561198040332252/" target="_blank" title="Friend me on Steam!" class="hoverLock">
+                    <i class="fa fa-steam"></i>
+                </a>
+                <a href="https://www.facebook.com/matt.puentes.7" target="_blank" title="Look at my Facebook!" class="hoverLock">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a href="https://t.me/MattPuentes" target="_blank" title="Send me a message on Telegram!" class="hoverLock">
+                    <i class="fa fa-telegram"></i>
+                </a>
+                <a href="mailto:matt.puentes@gmail.com" target="_blank" title="Email me!" class="hoverLock">
+                    <i class="fa fa-envelope"></i>
+                </a>
+            </div>
         </div>
-        <div class="inner-overlay" id="vList">
-          <div class="scrollBox" id="resume">
-              <a href="resume.html"> <span> Resume </span> </a>
-          </div>
-          <div class="scrollBox" id="projects">
-              <a href="projects.html"> <span> Projects </span> </a>
-          </div>
-          <div class="scrollBox" id="other">
-              <a href="other.html"> <span> Other </span> </a>
-          </div>
-        </div>
-      </div>
-      <div class="overlay" id="footer">
-        <ul class="overlay" id="icons">
-          <a href="https://github.com/Matt-Puentes" target="_blank">
-            <i class="fa fa-github"></i>
-          </a>
-          <a href="http://steamcommunity.com/profiles/76561198040332252/" target="_blank">
-            <i class="fa fa-steam"></i>
-          </a>
-          <a href="https://www.facebook.com/matt.puentes.7" target="_blank">
-            <i class="fa fa-facebook"></i>
-          </a>
-          <a href="https://t.me/MattPuentes" target="_blank">
-            <i class="fa fa-telegram"></i>
-          </a>
-        </ul>
-      </div>
-    </div>
-  </body>
+    </body>
 </html>

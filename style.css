@@ -1,143 +1,39 @@
-html,body {
-    height:100%;
-}
-#seen-canvas{
-  height:100vh;
-  width:100vw;
-}
-body {
-  margin:0px;
-}
-a:-webkit-any-link {
-    color: black;
-    cursor: pointer;
-    text-decoration: none;
-}
-#canvasContainter {
-  position: relative;
-  height:100vh;
-  width:100vw;
+*{ margin: 0; padding: 0; }
+body
+{
+	font-family: 'Nunito', sans-serif;
+    background-color:#25274D;
+	color: #2E9CCA;
+	text-shadow: 0.1em 0.1em 0.3em #464866;
 }
 #canvasContainter canvas {
   position: absolute;
   height:100vh;
   width:100vw;
 }
-#name{
-  width: 100%;
-  height: 20%;
-
-  text-align: center;
-  vertical-align: middle;
-  color: white;
-  position: relative;
-  line-height: 20vh;
-  margin: auto;
-
-  font-family: Helvetica, Geneva, sans-serif;
-  font-size: 10vh;
-
-  /*2vh Black outline for name*/
-  text-shadow: 0.1vh 0.1vh 0 #000,
-      -0.1vh 0.1vh 0 #000,
-      0.1vh -0.1vh 0 #000,
-      -0.1vh -0.1vh 0 #000,
-      0vh 0.1vh 0 #000,
-      0vh -0.1vh 0 #000,
-      -0.1vh 0vh 0 #000,
-      0.1vh 0vh 0 #000,
-      0.2vh 0.2vh 0 #000,
-      -0.2vh 0.2vh 0 #000,
-      0.2vh -0.2vh 0 #000,
-      -0.2vh -0.2vh 0 #000,
-      0vh 0.2vh 0 #000,
-      0vh -0.2vh 0 #000,
-      -0.2vh 0vh 0 #000,
-      0.2vh 0vh 0 #000,
-      0.1vh 0.2vh 0 #000,
-      -0.1vh 0.2vh 0 #000,
-      0.1vh -0.2vh 0 #000,
-      -0.1vh -0.2vh 0 #000,
-      0.2vh 0.1vh 0 #000,
-      -0.2vh 0.1vh 0 #000,
-      0.2vh -0.1vh 0 #000,
-      -0.2vh -0.1vh 0 #000;
+#main
+{
+	padding:3em 0em 0em 3em;
+	font-size: 32px;
+	-ms-transform: skewY(-3deg); /* IE 9 */
+    -webkit-transform: skewY(-3deg); /* Safari */
+    transform: skewY(-3deg); /* Standard syntax */
 }
-.overlay{
-  background-color: white;
-  text-align: center;
-  vertical-align: middle;
-  color: black;
-  font-family: Lato;
-  font-weight: lighter;
-  position: relative;
-  height: 70%;
-  width: 85%;
-  font-size: 4vh;
-  line-height: 7vh;
-  margin: auto;
-  font-family: Helvetica, Geneva, sans-serif;
-  display: table;
+#Name
+{
+    font-size:4em;
 }
-#footer{
-  height: 10vh;
+a
+{
+	color:inherit;
+    text-decoration: underline;
 }
-#icons{
-  padding:0;
-  margin:0;
-  text-decoration: none;
-  font-size: 8vh;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
+#icons a{
+    text-decoration: none;
 }
-#body{
-  overflow:hidden
+.hoverLock i {
+    color: inherit;
 }
-.inner-overlay{
-
-}
-#vList {
-    height: auto;
-    display: table-row;
-    border-spacing: 0vh 1vh;
-    border-collapse: separate;
-    width: 100%;
-    height: 100%;
-}
-
-.scrollBox{
-  font-family: Helvetica, Geneva, sans-serif;
-  text-align: center;
-  width: 100%;
-  height: 33%;
-  line-height: 100%;
-  position:relative;
-  /* display: table-row; */
-}
-.scrollBox a span{
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    top: 50%;
-    height: 1em;
-    margin-top: -0.5em;
-}
-.scrollBox a{
-    display:inline-block;
-    height: 100%;
-    width: 100%;
-}
-#resume{
-    background-color: grey;
-}
-#projects{
-    background-color: Crimson;
-}
-#other{
-    background-color: CornflowerBlue ;
+.hoverLock:hover i {
+    color: #AAABB8;
 }

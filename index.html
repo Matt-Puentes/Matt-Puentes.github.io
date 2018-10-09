@@ -10,39 +10,55 @@
         <title>Matthew Puentes</title>
         <script src="lib/seen.min.js"></script>
         <script src="noisy-wave.js"></script>
+        <script src="sidebar.js"></script>
     </head>
     <body onload="main()">
-        <div id ="canvasContainter">
-          <canvas width="1400" height="600" id="seen-canvas">
-            Please use a browser that supports the "canvas" tag.
-          </canvas>
-        <div id="main">
-            <p>Hello! My name is</p>
-            <p id="Name">Matt Puentes</p>
-            <p>I'm a Computer Science Student at <a href="https://www.wpi.edu">WPI</a></p>
-            <p>I'm a proud member of the <a href="https://www.sfs.opm.gov/">CyberCorps SFS program</a></p>
-            <p>I am looking for a job with the US government or a National Research Lab!</p>
-            <p>You can look at my resume <a href="files/Resume 2018.pdf">here</p>
 
-            <div id="icons">
-                <a href="https://github.com/Matt-Puentes" target="_blank" title="Check out my projects on Github!" class="hoverLock">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="http://steamcommunity.com/profiles/76561198040332252/" target="_blank" title="Friend me on Steam!" class="hoverLock">
-                    <i class="fab fa-steam"></i>
-                </a>
-                <a href="https://www.facebook.com/matt.puentes.7" target="_blank" title="Look at my Facebook!" class="hoverLock">
-                    <i class="fab fa-facebook"></i>
-                </a>
-                <a href="https://t.me/MattPuentes" target="_blank" title="Send me a message on Telegram!" class="hoverLock">
-                    <i class="fab fa-telegram"></i>
-                </a>
-                <a href="mailto:matt.puentes@gmail.com" target="_blank" title="Email me!" class="hoverLock">
-                    <i class="fa fa-envelope"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/matthew-puentes-827621171" target="_blank" title="Connect with me on LinkedIn!" class="hoverLock">
-                    <i class="fab fa-linkedin"></i>
-                </a>
+        <div id="sideBar" class="sideBar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeSideBar()">&times;</a>
+            <a href="Minesweeper.html">Minesweeper</a>
+        </div>
+
+        <div id="page">
+            <div id ="canvasContainter">
+                <canvas width="1400" height="600" id="seen-canvas">
+                    Please use a browser that supports the "canvas" tag.
+                </canvas>
+            </div>
+
+            <div id="main">
+                <!--this is the sidebar open button-->
+                <span class="sideBarButton" onclick="openSideBar()">&#9776;</span>
+
+                <div class="skew">
+                    <p>Hello! My name is</p>
+                    <p id="Name">Matt Puentes</p>
+                    <p>I'm a Computer Science Student at <a href="https://www.wpi.edu">WPI</a></p>
+                    <p>I'm a proud member of the <a href="https://www.sfs.opm.gov/">CyberCorps SFS program</a></p>
+                    <p>I am looking for a job with the US government or a National Research Lab!</p>
+                    <p>You can look at my resume <a href="files/Resume 2018.pdf">here</p>
+
+                    <div id="icons">
+                        <a href="https://github.com/Matt-Puentes" target="_blank" title="Check out my projects on Github!" class="hoverLock">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="http://steamcommunity.com/profiles/76561198040332252/" target="_blank" title="Friend me on Steam!" class="hoverLock">
+                            <i class="fab fa-steam"></i>
+                        </a>
+                        <a href="https://www.facebook.com/matt.puentes.7" target="_blank" title="Look at my Facebook!" class="hoverLock">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://t.me/MattPuentes" target="_blank" title="Send me a message on Telegram!" class="hoverLock">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="mailto:matt.puentes@gmail.com" target="_blank" title="Email me!" class="hoverLock">
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/matthew-puentes-827621171" target="_blank" title="Connect with me on LinkedIn!" class="hoverLock">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

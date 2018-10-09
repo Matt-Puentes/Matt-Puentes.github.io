@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+  <head>
+    <meta charset="utf-8" />
+    <title>Minesweeper</title>
+    <script src="Minesweeper.js"></script>
+  </head>
+  <body onload="main()">
+    <a href="index.html">Go Back Home</a>
+    <center>
+        <h1 style="font-size:5em"> Minesweeper </h1>
+        <br>
+            <label for="width-box"> width: </label>
+            <input type="number" id="width-box" value = 10>
+        	<label for="height-box"> height: </label>
+            <input type="number" id="height-box" value = 10>
+      	    <label for="mines-box"> mines: </label>
+            <input type="number" id="mines-box" value = 10>
+        	<button id="reset">Reset</button>
+    	<br>
+        <canvas id="MinesweeperCanvas" width="400" height="400" oncontextmenu="return false;" style=outline: 1px solid; padding: 0px; margin: 0px;>
+        	Please use a browser that supports the "canvas" tag.
+        </canvas>
+    </center>
+  </body>
+</html>

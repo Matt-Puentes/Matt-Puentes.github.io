@@ -1,30 +1,40 @@
 *{ margin: 0; padding: 0; }
-body
-{
+body{
 	font-family: 'Nunito', sans-serif;
     background-color:#25274D;
 	color: #2E9CCA;
 	text-shadow: 0.1em 0.1em 0.3em #464866;
 }
 #canvasContainter canvas {
-  position: absolute;
-  height:100vh;
-  width:100vw;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index: -1;
+	height:100vh;
+	width:100vw;
 }
-#main
-{
-	padding:3em 0em 0em 3em;
+#main{
+	z-index: 1
+	transition: margin-left .5s; /* for sidebar */
 	font-size: 32px;
-	-ms-transform: skewY(-3deg); /* IE 9 */
-    -webkit-transform: skewY(-3deg); /* Safari */
-    transform: skewY(-3deg); /* Standard syntax */
+	transition: 0.5s;
+	padding: 0 0 0 0;
 }
-#Name
-{
+.sideBarButton{
+	font-size: 2em;
+	cursor:pointer;
+	padding-left: 1.5em;
+}
+#main .skew{
+	padding: 1em 0em 0em 3em;
+	-ms-transform: skewY(-3deg); /* IE 9 */
+	-webkit-transform: skewY(-3deg); /* Safari */
+	transform: skewY(-3deg); /* Standard syntax */
+}
+#Name{
     font-size:4em;
 }
-a
-{
+a{
 	color:inherit;
     text-decoration: underline;
 }
@@ -37,4 +47,37 @@ a
 }
 .hoverLock:hover i {
     color: #AAABB8;
+}
+.sideBar{
+	height: 100%;
+	width: 0px;
+	position: fixed;
+	padding-top: 60px;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	overflow-x: hidden;
+	transition: 0.5s;
+	background-color: black;
+}
+
+.sideBar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sideBar a:hover {
+    color: #f1f1f1;
+}
+
+.sideBar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 }

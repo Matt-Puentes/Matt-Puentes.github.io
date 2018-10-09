@@ -157,7 +157,7 @@ function tick(){
 
 	if(nextTick != -1)
 		clearTimeout(nextTick)
-	nextTick = setTimeout(tick, 500);
+	nextTick = setTimeout(tick, 200);
 }
 
 function draw(x, y, type){
@@ -213,4 +213,6 @@ window.addEventListener("keydown", function (event) {
 			pressedDirection = "right";
 		}
 	}
+	if(event.key == "r" || event.key == "R")
+		resetGame()
 }, true);

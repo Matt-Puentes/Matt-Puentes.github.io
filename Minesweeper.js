@@ -49,7 +49,6 @@ function drawTile(x,y){
 		ctx.textAlign="center"
 		ctx.textBaseline="middle"
 		ctx.fillStyle = 'rgb(0,0,0)'
-		ctx.font = "30px Arial";
 		ctx.font = ctx.font.replace(/\d+px/, boxSize+"px");
 		ctx.fillText(board[x][y].neighbors, (x * boxSize) + boxSize/2, (y * boxSize) + boxSize/2);
 	}

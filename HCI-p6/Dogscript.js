@@ -56,7 +56,6 @@ function vec3tostr(vec3){
 
 window.addEventListener("keydown", function (event) {
 	if(event.key == "r"){
-        console.log("jjkm")
         dog.emit('bounce')
     }
 })

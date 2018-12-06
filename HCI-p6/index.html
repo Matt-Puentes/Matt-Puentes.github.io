@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>A-Pet</title>
-    <meta name="description" content="Hello, World! - A-Frame">
-    <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
-    <script src="https://unpkg.com/aframe-animation-component@^5.1.2/dist/aframe-animation-component.min.js"></script>
-    <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
-  </head>
-  <body>
-    <a-scene>
-      <a-box src="FUR.jpg" id="dog" position="-1 0.5 -3" rotation="0 45 0"></a-box>
-      <a-camera>
-        <a-cursor></a-cursor>
-      </a-camera>
-      <a-sky environment="preset:forest"></a-sky>
-    </a-scene>
-  </body>
-  <script src="Dogscript.js"></script>
+    <head>
+        <meta charset="utf-8">
+        <title>A-Pet</title>
+        <meta name="description" content="Hello, World! - A-Frame">
+        <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+        <script src="https://unpkg.com/aframe-animation-component@^5.1.2/dist/aframe-animation-component.min.js"></script>
+        <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+
+    </head>
+    <script src="Dogscript.js"></script>
+    <body onload="main()">
+        <a-scene>
+            <a-assets>
+                <a-asset-item id="duck" src="Duck.gltf"></a-asset-item>
+            </a-assets>
+
+            <!-- <a-entity id="dog" position="2 2 2" scale="0.25 0.25 0.25" gltf-model="#duck" ></a-entity> -->
+            <a-entity id="dog" scale="0.5 0.5 0.5" gltf-model="url(Duck.gltf)"></a-entity>
+            <!-- <a-gltf-model id="dog" position="2 2 2" scale="0.25 0.25 0.25" gltf-model="#duck" ></a-gltf-model> -->
+            <a-box src="FUR.jpg" id="dog2" position="-1 0.5 -3" rotation="0 45 0"></a-box>
+            <a-sky environment="preset:forest"></a-sky>
+
+            <a-camera  position="0 1 4">
+                <a-cursor></a-cursor>
+            </a-camera>
+        </a-scene>
+    </body>
 </html>

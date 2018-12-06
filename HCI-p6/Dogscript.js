@@ -13,9 +13,13 @@ function main(){
     addSadAnimation(dog)
 
     dog.addEventListener('click', function() {
-        dog.emit('bounce');
-        dog.emit('jump');
-        // loadDog();
+        loadDog();
+        if(Math.random() > 0.5){
+            dog.emit('bounce');
+        }
+        else{
+            dog.emit('jump');
+        }
     });
 
     dogwalk()

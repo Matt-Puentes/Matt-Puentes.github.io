@@ -15,6 +15,7 @@ function main(){
     dog.addEventListener('click', function() {
         dog.emit('bounce');
         dog.emit('jump');
+        loadDog();
     });
 
     dogwalk()
@@ -33,28 +34,25 @@ function dogwalk(){
 
 
 function loadDog(){
-    dog.setAttribute('scale', {x: .5, y: .5, z: .5}, true);
+    console.log("load")
+    dog.setAttribute('scale', {x: .25, y: .25, z: .25}, true);
+    dogWrapper.setAttribute('scale', {x: 1, y: 1, z: 1}, true);
 }
 
 function addBounceAnimation(entity) {
     var dogScale = entity.getAttribute('scale');
     var dogScale2 = Object.assign({}, dogScale);
-    dogScale2.y = dogScale2.y * 1.5
-    dogScale2.x = dogScale2.x * 0.8
-    dogScale2.z = dogScale2.z * 0.8
+    dogScale2.y = 0.25 * 1.5
+    dogScale2.x = 0.25 * 0.8
+    dogScale2.z = 0.25 * 0.8
     var dogPos = entity.getAttribute('position');
     var dogPos2 = Object.assign({}, dogPos);
     dogPos2.y = dogPos2.y + 0.2//(entity.getAttribute('geometry').height * 0.5)
     var len = 500
 
-    console.log(dogScale)
-    console.log(dogScale2)
-    console.log(dogPos)
-    console.log(dogPos2)
-
     entity.setAttribute('animation__scale1',{
         property:'scale',
-        from: vec3tostr(dogScale),
+        from: "0.25 0.25 0.25",
         to: vec3tostr(dogScale2),
         startEvents: 'bounce',
         dur: len
@@ -69,7 +67,7 @@ function addBounceAnimation(entity) {
     entity.setAttribute('animation__scale2',{
         property:'scale',
         from: vec3tostr(dogScale2),
-        to: vec3tostr(dogScale),
+        to: "0.25 0.25 0.25",
         startEvents: 'bounce',
         delay: len,
         dur: len
@@ -82,6 +80,7 @@ function addBounceAnimation(entity) {
         delay: len,
         dur: len
     })
+    console.log(dogScale)
 }
 
 function addSadAnimation(entity) {
@@ -89,7 +88,7 @@ function addSadAnimation(entity) {
     var dogPos2 = Object.assign({}, dogPos);
     var dogRot = entity.getAttribute('rotation')
     var dogRot2 = Object.assign({}, dogRot);
-    var len = 3000
+    var sadLen = 100
 
     dogPos2.y -= 0.05
     dogRot2.z += -15
@@ -105,7 +104,7 @@ function addSadAnimation(entity) {
         from: vec3tostr(dogPos),
         to: vec3tostr(dogPos2),
         startEvents: 'sad',
-        dur: len
+        dur: sadLen
     })
 
     entity.setAttribute('animation__pos2_s',{
@@ -113,8 +112,8 @@ function addSadAnimation(entity) {
         from: vec3tostr(dogPos2),
         to: vec3tostr(dogPos),
         startEvents: 'sad',
-        delay: len,
-        dur: len
+        delay: sadLen,
+        dur: sadLen
     })
 
     entity.setAttribute('animation__rot1_s', {
@@ -122,7 +121,7 @@ function addSadAnimation(entity) {
         from: vec3tostr(dogRot),
         to: vec3tostr(dogRot2),
         startEvents: 'sad',
-        dur: len
+        dur: sadLen
     })
 
     entity.setAttribute('animation__rot2_s', {
@@ -130,8 +129,8 @@ function addSadAnimation(entity) {
         from: vec3tostr(dogRot2),
         to: vec3tostr(dogRot),
         startEvents: 'sad',
-        delay: len * 2,
-        dur: len
+        delay: sadLen * 2,
+        dur: sadLen
     })
 
     entity.setAttribute('animation__scale1_s',{
@@ -139,7 +138,7 @@ function addSadAnimation(entity) {
         from: vec3tostr(dogScale),
         to: vec3tostr(dogScale2),
         startEvents: 'sad',
-        dur: len
+        dur: sadLen
     })
 
     entity.setAttribute('animation__scale2_s',{
@@ -147,8 +146,8 @@ function addSadAnimation(entity) {
         from: vec3tostr(dogScale2),
         to: vec3tostr(dogScale),
         startEvents: 'sad',
-        delay: len * 2,
-        dur: len
+        delay: sadLen * 2,
+        dur: sadLen
     })
 }
 

@@ -15,7 +15,7 @@ function main(){
     dog.addEventListener('click', function() {
         dog.emit('bounce');
         dog.emit('jump');
-        loadDog();
+        // loadDog();
     });
 
     dogwalk()
@@ -35,16 +35,17 @@ function dogwalk(){
 
 function loadDog(){
     console.log("load")
-    dog.setAttribute('scale', {x: .25, y: .25, z: .25}, true);
-    dogWrapper.setAttribute('scale', {x: 1, y: 1, z: 1}, true);
+    // dog.setAttribute('scale', {x: .25, y: .25, z: .25}, true);
+    dog.setAttribute('scale', {x: .5, y: .5, z: .5}, true);
+    // dogWrapper.setAttribute('scale', {x: 1, y: 1, z: 1}, true);
 }
 
 function addBounceAnimation(entity) {
     var dogScale = entity.getAttribute('scale');
     var dogScale2 = Object.assign({}, dogScale);
-    dogScale2.y = 0.25 * 1.5
-    dogScale2.x = 0.25 * 0.8
-    dogScale2.z = 0.25 * 0.8
+    dogScale2.y = 0.5 * 1.5
+    dogScale2.x = 0.5 * 0.8
+    dogScale2.z = 0.5 * 0.8
     var dogPos = entity.getAttribute('position');
     var dogPos2 = Object.assign({}, dogPos);
     dogPos2.y = dogPos2.y + 0.2//(entity.getAttribute('geometry').height * 0.5)
@@ -52,7 +53,7 @@ function addBounceAnimation(entity) {
 
     entity.setAttribute('animation__scale1',{
         property:'scale',
-        from: "0.25 0.25 0.25",
+        from: "0.5 0.5 0.5",
         to: vec3tostr(dogScale2),
         startEvents: 'bounce',
         dur: len
@@ -67,7 +68,7 @@ function addBounceAnimation(entity) {
     entity.setAttribute('animation__scale2',{
         property:'scale',
         from: vec3tostr(dogScale2),
-        to: "0.25 0.25 0.25",
+        to: "0.5 0.5 0.5",
         startEvents: 'bounce',
         delay: len,
         dur: len
@@ -88,7 +89,7 @@ function addSadAnimation(entity) {
     var dogPos2 = Object.assign({}, dogPos);
     var dogRot = entity.getAttribute('rotation')
     var dogRot2 = Object.assign({}, dogRot);
-    var sadLen = 100
+    var sadLen = 1000
 
     dogPos2.y -= 0.05
     dogRot2.z += -15
@@ -202,8 +203,8 @@ function addRandomWalk(entity) {
 
 
     len = 1000;
-    var dx = (Math.random() * 4) - 2
-    var dz = (Math.random() * 4) - 2
+    var dx = (Math.random() * 3) - 1.5
+    var dz = (Math.random() * 3) - 1.5
     dogPos2.x += dx
     dogPos2.z += dz
 

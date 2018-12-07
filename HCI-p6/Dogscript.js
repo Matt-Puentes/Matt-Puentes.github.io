@@ -12,17 +12,19 @@ function main(){
     addJumpAnimation(dog)
     addSadAnimation(dog)
 
-    dog.addEventListener('click', function() {
-        loadDog();
-        if(Math.random() > 0.5){
-            dog.emit('bounce');
-        }
-        else{
-            dog.emit('jump');
-        }
-    });
+    dog.addEventListener('click', onclick);
 
     dogwalk()
+}
+
+function onclick() {
+    loadDog();
+    if(Math.random() > 0.5){
+        dog.emit('bounce');
+    }
+    else{
+        dog.emit('jump');
+    }
 }
 
 var nextTick = -1

@@ -48,6 +48,13 @@ function init(){
 
     isWalking = false
     dogwalk()
+    setTimeout(loadTimeout, 5000);
+}
+
+function loadTimeout(){
+    console.log("loadTimeout")
+    isWalking = false
+    dogwalk()
 }
 
 // happiness ranges from 0 to 10
@@ -84,6 +91,7 @@ function onclick() {
 
     if (!isEmoting) {
         longsqueak.play();
+
         if (happiness > 3) {
             if (Math.random() > 0.5) {
                 dog.emit('bounce');
@@ -241,8 +249,6 @@ function addJumpAnimation(entity) {
 
     dogPos2.y += 1
     dogRot2.z += 20
-
-    squeak.play();
 
     entity.setAttribute('animation__pos1_j',{
         property:'position',

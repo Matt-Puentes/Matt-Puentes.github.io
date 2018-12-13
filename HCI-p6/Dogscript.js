@@ -11,6 +11,8 @@ var targetingFood = false
 var happiness = 5
 var squeak = new Audio('squeeky.wav');
 var longsqueak = new Audio('longsqueak.wav');
+var click  = new Audio('click.wav');
+var throwsfx = new Audio('land.wav');
 var foodPos = {x: 0, y: 0, z: 0}
 var tossing = false
 
@@ -56,6 +58,7 @@ function init(){
 }
 
 function enableToss(){
+    click.play();
     tossing = true;
 }
 
@@ -96,19 +99,21 @@ function onclick() {
         ( camera_rotation.z - dog_rotation.z);
 
     if (!isEmoting) {
-        longsqueak.play();
+
 
         if (happiness > 3) {
+            squeak.play();
             if (Math.random() > 0.5) {
                 dog.emit('bounce');
             }
             else {
                 dog.emit('jump');
             }
-            change_happiness(0.8)
+            change_happiness(2)
         } else {
+            longsqueak.play();
             dog.emit('sad')
-            change_happiness(0.3)
+            change_happiness(1)
         }
         isEmoting = true
     }
@@ -120,7 +125,7 @@ function dogwalk(){
         if (Math.random() > 0.25) {
             addRandomWalk(dogWrapper)
             dog.emit('walk')
-            change_happiness(-1)
+            change_happiness(-0.8)
             isWalking = true
         }
 
@@ -179,6 +184,7 @@ function addBounceAnimation(entity) {
 }
 
 function callDuck() {
+    click.play();
     var camPos = camera.getAttribute('position')
     foodPos = camPos
     console.log(foodPos)
@@ -357,6 +363,7 @@ function tossFood() {
         camPos = camera.getAttribute('position')
         camRot = camera.getAttribute('rotation')
         if (-camRot.x < 85) {
+            throwsfx.play();
             dist = camPos.y / Math.tan(d2r(-camRot.x))
             foodPos = { x: camPos.x + dist * Math.cos(d2r(camRot.y) + Math.PI/2),
                         y: 0,

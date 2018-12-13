@@ -7,22 +7,35 @@
         <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
         <script src="https://unpkg.com/aframe-animation-component@^5.1.2/dist/aframe-animation-component.min.js"></script>
         <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+        <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
 
     </head>
     <script src="Dogscript.js"></script>
-    <body onload="main()">
+    <body onload="init()">
         <a-scene>
             <a-assets>
                 <a-asset-item id="duck" src="Duck.gltf"></a-asset-item>
-                <!-- <a-asset-item id="fur" src="FUR.jpg"></a-asset-item> -->
+                <audio id="squeak" src="squeeky.wav" preload="auto"></audio>
+                <a-asset-item id="optimerBoldFont" src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"></a-asset-item>
             </a-assets>
 
-            <a-entity id="dog-wrapper" rotation="0 0 0">
-                <a-entity id="dog" scale="0.5 0.5 0.5" gltf-model="url(Duck.gltf)"></a-entity>
+            <a-sphere id="food" color="brown" radius="0.2"></a-sphere>
+            <a-entity id="dog-wrapper" rotation="0 0 0" position="0 0 0">
+                <a-entity id="dog" scale="0.5 0.5 0.5" gltf-model="url(Duck.gltf)">
+                </a-entity>
             </a-entity>
-            <!-- <a-box src="FUR.jpg" id="dog2" position="-1 0.5 -3" rotation="0 45 0"></a-box> -->
-            <a-sky environment="preset:forest"></a-sky>
 
+            <a-sphere id="Call" scale ="0.25 0.5 0.5" position="2 1 1">
+                <a-entity text-geometry="value: Call" scale = "1 1 6" position="-0.75 -0.25 -0.50" rotation="0 -90 0"></a-entity>
+            </a-sphere>
+            <a-sphere id="Feed" scale ="0.25 0.5 0.5" position="2 1 2.5">
+                <a-entity text-geometry="value: Feed" scale = "0.90 0.90 6" position="-0.75 -0.25 -0.70" rotation="0 -90 0"></a-entity>
+            </a-sphere>
+            <a-sphere id="Throw" scale ="0.25 0.5 0.5" position="2 1 4">
+                <a-entity text-geometry="value: Throw" scale = "0.85 0.85 6" position="-0.75 -0.25 -0.80" rotation="0 -90 0"></a-entity>
+            </a-sphere>
+
+            <a-sky environment="preset:forest"></a-sky>
             <a-camera  position="0 1 4">
                 <a-cursor fuse="false"></a-cursor>
             </a-camera>

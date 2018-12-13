@@ -101,7 +101,7 @@ function onclick() {
     if (!isEmoting) {
 
 
-        if (happiness > 3) {
+        if (happiness > 2) {
             squeak.play();
             if (Math.random() > 0.5) {
                 dog.emit('bounce');
@@ -109,11 +109,11 @@ function onclick() {
             else {
                 dog.emit('jump');
             }
-            change_happiness(2)
+            change_happiness(4)
         } else {
             longsqueak.play();
             dog.emit('sad')
-            change_happiness(1)
+            change_happiness(1.8)
         }
         isEmoting = true
     }

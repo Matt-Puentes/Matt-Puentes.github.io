@@ -3,6 +3,7 @@ var dog;
 var food;
 var dogWrapper;
 var camera;
+var ground;
 var isWalking = false
 var isEmoting = false
 var foodOut = false
@@ -11,19 +12,23 @@ var happiness = 5
 var squeak = new Audio('squeeky.wav');
 var longsqueak = new Audio('longsqueak.wav');
 var foodPos = {x: 0, y: 0, z: 0}
+var tossing = false
 
 function init(){
+    console.log("game begin")
     sceneEl = document.querySelector('a-scene');
     dog = sceneEl.querySelector('#dog');
     food = sceneEl.querySelector('#food');
     food.setAttribute('visible', false)
     camera = sceneEl.querySelector('a-camera')
+    ground = sceneEl.querySelector('a-sky')
     dogWrapper = sceneEl.querySelector('#dog-wrapper');
     loadDog()
     addBounceAnimation(dog)
     addJumpAnimation(dog)
     addSadAnimation(dog)
     dog.addEventListener('click', onclick);
+    ground.addEventListener('click', tossFood);
     dogWrapper.addEventListener('animationcomplete__pos1_w', function (e) {
         isWalking = false
         if (targetingFood) {
@@ -42,13 +47,16 @@ function init(){
         isEmoting = false
     });
 
-    setupClickable("Call")
-    setupClickable("Feed")
-    setupClickable("Throw")
+    setupClickable("Call", callDuck)
+    setupClickable("Point", enableToss)
 
     isWalking = false
     dogwalk()
     setTimeout(loadTimeout, 5000);
+}
+
+function enableToss(){
+    tossing = true;
 }
 
 function loadTimeout(){
@@ -67,7 +75,7 @@ function change_happiness(num) {
     }
 }
 
-function setupClickable(id){
+function setupClickable(id, func){
     var id = "#" + id
     document.querySelector(id).addEventListener('mouseenter', function(e){
         document.querySelector(id).setAttribute('color', 'yellow')
@@ -75,9 +83,7 @@ function setupClickable(id){
     document.querySelector(id).addEventListener('mouseleave', function(e){
         document.querySelector(id).setAttribute('color', 'white')
     })
-    document.querySelector(id).addEventListener('click', function(e){
-        console.log(id)
-    })
+    document.querySelector(id).addEventListener('click', func)
 }
 
 function onclick() {
@@ -172,6 +178,17 @@ function addBounceAnimation(entity) {
     })
 }
 
+function callDuck() {
+    var camPos = camera.getAttribute('position')
+    foodPos = camPos
+    console.log(foodPos)
+    console.log(camPos)
+    foodOut = true
+    change_happiness(1)
+    food.setAttribute('visible', false)
+}
+
+
 function addSadAnimation(entity) {
     var dogPos = entity.getAttribute('position')
     var dogPos2 = Object.assign({}, dogPos);
@@ -184,9 +201,9 @@ function addSadAnimation(entity) {
 
     var dogScale = entity.getAttribute('scale');
     var dogScale2 = Object.assign({}, dogScale);
-    dogScale2.y = dogScale2.y * 0.8
-    dogScale2.x = dogScale2.x * 1.2
-    dogScale2.z = dogScale2.z * 1.2
+    dogScale2.y = 0.5 * 0.8
+    dogScale2.x = 0.5 * 1.2
+    dogScale2.z = 0.5 * 1.2
 
     entity.setAttribute('animation__pos1_s',{
         property:'position',
@@ -224,7 +241,7 @@ function addSadAnimation(entity) {
 
     entity.setAttribute('animation__scale1_s',{
         property:'scale',
-        from: vec3tostr(dogScale),
+        from: "0.5 0.5 0.5",
         to: vec3tostr(dogScale2),
         startEvents: 'sad',
         dur: sadLen
@@ -233,7 +250,7 @@ function addSadAnimation(entity) {
     entity.setAttribute('animation__scale2_s',{
         property:'scale',
         from: vec3tostr(dogScale2),
-        to: vec3tostr(dogScale),
+        to: "0.5 0.5 0.5",
         startEvents: 'sad',
         delay: sadLen * 2,
         dur: sadLen
@@ -336,17 +353,20 @@ function addRandomWalk(entity) {
 }
 
 function tossFood() {
-    camPos = camera.getAttribute('position')
-    camRot = camera.getAttribute('rotation')
-    if (-camRot.x < 85) {
-        dist = camPos.y / Math.tan(d2r(-camRot.x))
-        foodPos = { x: camPos.x + dist * Math.cos(d2r(camRot.y) + Math.PI/2),
-                    y: 0,
-                    z: camPos.z + dist * -Math.sin(d2r(camRot.y) + Math.PI/2)}
-        foodOut = true
+    if(tossing){
+        camPos = camera.getAttribute('position')
+        camRot = camera.getAttribute('rotation')
+        if (-camRot.x < 85) {
+            dist = camPos.y / Math.tan(d2r(-camRot.x))
+            foodPos = { x: camPos.x + dist * Math.cos(d2r(camRot.y) + Math.PI/2),
+                        y: 0,
+                        z: camPos.z + dist * -Math.sin(d2r(camRot.y) + Math.PI/2)}
+            foodOut = true
 
-        food.setAttribute('position', foodPos, true)
-        food.setAttribute('visible', true)
+            food.setAttribute('position', foodPos, true)
+            food.setAttribute('visible', true)
+            tossing = false
+        }
     }
 }
 
@@ -371,6 +391,10 @@ window.addEventListener("keydown", function (event) {
             break;
         case "t":
             tossFood()
+            break;
+        case "c":
+            callDuck()
+            dog.emit('bounce')
             break;
     }
 })

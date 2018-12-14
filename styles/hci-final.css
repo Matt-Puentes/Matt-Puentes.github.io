@@ -1,24 +1,14 @@
 body{
-    /* font-family: Geneva,sans-serif;
-    font-size: 30px; */
-    text-indent: 50px;
-    font:"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
-    font-size: 25px;
-    -top: 50px 0px 0px 50px;
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    background-color:#31275f;
+    color: #2E9CCA;
 }
-h1,h2{
-    font-family: Arial, sans-serif;
-    text-indent: 0%;
+a{
+    color: #ffffff;
 }
-h3{
-    font-family: Arial,sans-serif;
-    color:grey;
-    text-indent: 0%;
+.row {
+  display: flex;
 }
-p {
-    display: block;
+
+.column {
+  flex: 50%;
 }

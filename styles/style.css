@@ -27,9 +27,9 @@ body{
 }
 #main .skew{
 	padding: 1em 0em 0em 3em;
-	-ms-transform: skewY(-3deg); /* IE 9 */
-	-webkit-transform: skewY(-3deg); /* Safari */
-	transform: skewY(-3deg); /* Standard syntax */
+	/*-ms-transform: skewY(-3deg); /* IE 9 */
+	/*-webkit-transform: skewY(-3deg); /* Safari */
+	/*transform: skewY(-3deg); /* Standard syntax */
 }
 #Name{
     font-size:4em;
